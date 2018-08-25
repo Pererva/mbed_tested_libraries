@@ -28,7 +28,7 @@
 #define LCD_SPI_BITS 0x10
 
 //May need to lower this on certain boards
-#define LCD_FREQ 6200000
+#define LCD_FREQ 72000000
 
 #define PIN_RST  0x00
 #define PIN_SCE  0x01

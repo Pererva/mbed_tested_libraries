@@ -1,4 +1,4 @@
-#include "TSL2591.h"
+#include "Adafruit_TSL2591.h"
 
 TSL2591::TSL2591 (I2C& tsl2591_i2c, uint8_t tsl2591_addr):
     _i2c(tsl2591_i2c), _addr(tsl2591_addr<<1)
