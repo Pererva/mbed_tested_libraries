@@ -23,28 +23,29 @@
 
 #include "mbed.h"
 
-// really unusual way of getting data, your read from two different addrs!
-#define VEML6070_ADDR_H (0x39 << 1)
-#define VEML6070_ADDR_L (0x38 << 1)
+// To get data, you read from two different addresses!
+#define VEML6070_ADDR_H     (0x39) // < High address
+#define VEML6070_ADDR_L     (0x38) // < Low address
+#define VEML6070_ADDR_ARA   (0x0C) // < Alert Response Address (read to clear condition)
 
-// three different integration times
+
+// Four different integration times
 typedef enum veml6070_integrationtime {
-    VEML6070_HALF_T,
-    VEML6070_1_T,
-    VEML6070_2_T,
-    VEML6070_4_T,
+    VEML6070_HALF_T,    // ~ 62.5 ms
+    VEML6070_1_T,       // ~ 125  ms
+    VEML6070_2_T,       // ~ 250  ms
+    VEML6070_4_T,       // ~ 500  ms
 } veml6070_integrationtime_t;
 
 
-class VEML6070
-{
-public:
-    VEML6070(I2C& p_i2c);
-    void begin(veml6070_integrationtime_t itime);
-    uint16_t readUV(void);
-protected:
-    I2C  _i2c;
-private:
-    char dt[2];
+class VEML6070 {
+    public:
+        VEML6070(I2C& p_i2c);
+        void begin(veml6070_integrationtime_t itime);
+        uint16_t readUV(void);
+    protected:
+        I2C  _i2c;
+    private:
+        char dt[2];
 };
 #endif

@@ -12,10 +12,8 @@
  ****************************************************/
 
 #include "VEML6070.h"
-VEML6070::VEML6070 (I2C& p_i2c) : _i2c(p_i2c)
-{
-
-}
+VEML6070::VEML6070 (I2C& p_i2c) : _i2c(p_i2c) {
+};
 
 void VEML6070::begin(veml6070_integrationtime_t itime)
 {
